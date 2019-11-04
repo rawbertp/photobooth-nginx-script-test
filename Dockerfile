@@ -7,3 +7,4 @@ EXPOSE 80
 CMD ["/tmp/install-photo-booth-nginx.sh"]
 
 STOPSIGNAL SIGTERM
+

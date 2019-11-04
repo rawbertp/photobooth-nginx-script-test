@@ -14,5 +14,7 @@ sed -i '/include snippets\/fastcgi-php.conf/s/^\(\s*\)#/\1/g' /etc/nginx/sites-a
 sed -i '/fastcgi_pass unix:\/run\/php\//s/^\(\s*\)#/\1/g' /etc/nginx/sites-available/default
 sed -i '/.*fastcgi_pass unix:\/run\/php\//,// { /}/s/^\(\s*\)#/\1/g; }' /etc/nginx/sites-available/default
 
+/usr/sbin/nginx -t -c /etc/nginx/nginx.conf
+
 /usr/sbin/php-fpm7.3 -D
-/usr/sbin/nginx -g "daemon off;"
+exec /usr/sbin/nginx -g "daemon off;"
